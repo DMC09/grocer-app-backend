@@ -1,0 +1,20 @@
+{
+"name": "grocer-app-backend",
+"version": "1.0.0",
+"description": "Backend service for grocer app",
+"scripts": {
+  "docker:dev": "docker compose -f docker-compose.dev.yml up --build",
+  "docker:prod": "docker compose -f docker-compose.prod.yml up --build",
+  "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
+  "docker:prod:down": "docker compose -f docker-compose.prod.yml down",
+  "poetry:install": "poetry install",
+  "poetry:shell": "poetry shell",
+  "django:migrate": "poetry run python manage.py migrate",
+  "django:makemigrations": "poetry run python manage.py makemigrations",
+  "django:createsuperuser": "poetry run python manage.py createsuperuser",
+  "django:shell": "poetry run python manage.py shell",
+  "format": "poetry run black . && poetry run isort .",
+  "lint": "poetry run flake8",
+  "test": "poetry run pytest"
+}
+} 

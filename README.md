@@ -1,14 +1,23 @@
 # Grocer App Backend
 
-A backend service for managing grocery store operations.
+A Django/DRF backend service for managing grocery store operations, designed to work with grocer-app-ui frontend.
 
-## Getting Started
+## Tech Stack
+
+- Python 3.11+
+- Django 5.0+
+- Django Rest Framework
+- PostgreSQL
+- Docker & Docker Compose
+- Poetry for dependency management
+
+## Development Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-- MongoDB
+- Python 3.11 or higher
+- Poetry
+- Docker and Docker Compose
 
 ### Installation
 
-1. Clone the repository 
+1. Clone the repository
