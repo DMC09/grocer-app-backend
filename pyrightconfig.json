@@ -1,0 +1,31 @@
+{
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    "build",
+    "dist",
+    "*.egg-info"
+  ],
+  "ignore": [],
+  "defineConstant": {
+    "DEBUG": true
+  },
+  "venvPath": ".",
+  "pythonVersion": "3.11",
+  "pythonPlatform": "All",
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "extraPaths": [
+        "."
+      ]
+    }
+  ],
+  "typeCheckingMode": "basic",
+  "useLibraryCodeForTypes": true,
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false
+} 

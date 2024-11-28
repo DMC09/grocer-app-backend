@@ -13,6 +13,7 @@ RUN apt-get update \
         postgresql-client \
         build-essential \
         curl \
+        netcat-traditional \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Poetry
@@ -35,3 +36,10 @@ COPY . .
 
 # Expose port
 EXPOSE 8000 
+
+# Copy entrypoint script
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Set entrypoint
+ENTRYPOINT ["/entrypoint.sh"]

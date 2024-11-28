@@ -3,6 +3,7 @@ name = "grocer-app-backend"
 version = "0.1.0"
 description = "Django/DRF backend for grocery store operations"
 authors = ["Your Name <your.email@example.com>"]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -16,12 +17,25 @@ django-cors-headers = "^4.3.1"
 drf-spectacular = "^0.27.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.1.1"
-isort = "^5.13.2"
-flake8 = "^7.0.0"
+ruff = "^0.2.0"
 pytest = "^8.0.0"
 pytest-django = "^4.8.0"
 
 [build-system]
 requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api" 
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = ["**/migrations/*", "**/snapshots/*"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E203", "E501","F405","F403"]
+
+[tool.ruff.format]
+quote-style = "preserve"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto" 

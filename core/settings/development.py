@@ -9,4 +9,4 @@ CORS_ALLOWED_ORIGINS = environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:300
 CORS_ALLOW_CREDENTIALS = True
 
 # Email backend for development
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

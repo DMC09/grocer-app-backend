@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
-from pathlib import Path
+
 
 def main():
     """Run administrative tasks."""
@@ -16,5 +16,6 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+
 if __name__ == '__main__':
-    main() 
+    main()
