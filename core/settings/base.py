@@ -28,8 +28,10 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "health",
-    # Add your local apps here
+    "apps.categories",
+    "apps.items",
+    "apps.stores",
+    "apps.profiles",
 ]
 
 INSTALLED_APPS = [*DJANGO_APPS, *THIRD_PARTY_APPS, *LOCAL_APPS]
@@ -139,3 +141,6 @@ CACHES = {
         "LOCATION": REDIS_URL,
     }
 }
+
+# Custom user model
+AUTH_USER_MODEL = 'profiles.Profile'
