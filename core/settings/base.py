@@ -12,29 +12,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = environ.get("SECRET_KEY")
 
 # Application definition
-DJANGO_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+INSTALLED_APPS = [
+    # Django default apps
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    
+    # Third-party apps
+    'rest_framework',
+    'corsheaders',
+    'drf_spectacular',
+    
+    # Local apps
+    'apps.inventory',
+    'apps.users',
 ]
-
-THIRD_PARTY_APPS = [
-    "rest_framework",
-    "corsheaders",
-    "drf_spectacular",
-]
-
-LOCAL_APPS = [
-    "apps.categories",
-    "apps.items",
-    "apps.stores",
-    "apps.profiles",
-]
-
-INSTALLED_APPS = [*DJANGO_APPS, *THIRD_PARTY_APPS, *LOCAL_APPS]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -143,4 +138,4 @@ CACHES = {
 }
 
 # Custom user model
-AUTH_USER_MODEL = 'profiles.Profile'
+AUTH_USER_MODEL = 'users.Profile'
