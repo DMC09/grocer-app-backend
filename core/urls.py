@@ -11,7 +11,10 @@ from drf_spectacular.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     # System endpoints
-    path('api/health/', include('health.urls')),
+    path('api/health/', include('apps.health.urls')),
+    # Include your app URLs here
+    path('api/users/', include('apps.users.urls')),
+    path('api/inventory/', include('apps.inventory.urls')),
     # API Schema URLs
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
