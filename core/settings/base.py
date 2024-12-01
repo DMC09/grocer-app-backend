@@ -13,6 +13,10 @@ SECRET_KEY = environ.get("SECRET_KEY")
 
 # Application definition
 INSTALLED_APPS = [
+    # Your apps
+    'apps.users',
+    'apps.inventory',
+    
     # Django default apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -21,14 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    # Third-party apps
+    # Third party apps
     'rest_framework',
     'corsheaders',
     'drf_spectacular',
-    
-    # Local apps
-    'apps.inventory',
-    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -138,4 +138,4 @@ CACHES = {
 }
 
 # Custom user model
-AUTH_USER_MODEL = 'users.Profile'
+AUTH_USER_MODEL = 'users.User'
