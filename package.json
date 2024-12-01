@@ -1,22 +1,25 @@
 {
-"name": "grocer-app-backend",
-"version": "1.0.0",
-"description": "Backend service for grocer app",
-"scripts": {
-  "docker:dev": "docker compose -f docker-compose.dev.yml up --build",
-  "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
-  "docker:applymigration": "docker compose -f docker-compose.dev.yml exec web python manage.py migrate",
-  "docker:makemigration": "docker compose -f docker-compose.dev.yml exec web python manage.py makemigrations",
-  "docker:showmigration": "docker compose -f docker-compose.dev.yml exec web python manage.py showmigrations",
-  "docker:prod": "docker compose -f docker-compose.prod.yml up --build",
-  "docker:prod:down": "docker compose -f docker-compose.prod.yml down",
-  "format": "poetry run ruff format .",
-  "lint": "poetry run ruff check .",
-  "lint:fix": "poetry run ruff check --fix .",
-  "test": "poetry run pytest",
-  "format:check": "poetry run ruff format --check .",
-  "lint:watch": "poetry run ruff check --watch .",
-  "format:watch": "poetry run ruff format --watch .",
-  "code:fix": "npm run format && npm run lint:fix"
+  "name": "grocer-app-backend",
+  "version": "1.0.0",
+  "description": "Backend service for grocer app",
+  "scripts": {
+    "docker:dev": "docker compose -f docker-compose.dev.yml up --build",
+    "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
+    "docker:nuke": "docker compose -f docker-compose.dev.yml down -v --rmi all",
+    "docker:reset": "npm run docker:nuke && npm run docker:dev",
+    "docker:applymigration": "npm run docker:exec -- python manage.py migrate",
+    "docker:makemigration": "npm run docker:exec -- python manage.py makemigrations",
+    "docker:showmigration": "npm run docker:exec -- python manage.py showmigrations",
+    "docker:shell": "docker compose -f docker-compose.dev.yml exec web /bin/bash",
+    "docker:prod": "docker compose -f docker-compose.prod.yml up --build",
+    "docker:prod:down": "docker compose -f docker-compose.prod.yml down",
+    "format": "poetry run ruff format .",
+    "lint": "poetry run ruff check .",
+    "lint:fix": "poetry run ruff check --fix .",
+    "test": "poetry run pytest",
+    "format:check": "poetry run ruff format --check .",
+    "lint:watch": "poetry run ruff check --watch .",
+    "format:watch": "poetry run ruff format --watch .",
+    "code:fix": "npm run format && npm run lint:fix"
+  }
 }
-} 
