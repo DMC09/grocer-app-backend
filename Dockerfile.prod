@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /app
+WORKDIR /backend
 
 # Install system dependencies
 RUN apt-get update \
@@ -37,7 +37,7 @@ RUN python manage.py collectstatic --noinput
 # Production image
 FROM python:3.11-slim
 
-WORKDIR /app
+WORKDIR /backend
 
 # Install runtime dependencies
 RUN apt-get update \
@@ -46,11 +46,11 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy project files from builder
-COPY --from=builder /app /app
+COPY --from=builder /backend /backend
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 
 # Create user for security
-RUN useradd -m appuser && chown -R appuser:appuser /app
+RUN useradd -m appuser && chown -R appuser:appuser /backend
 USER appuser
 
 # Expose port

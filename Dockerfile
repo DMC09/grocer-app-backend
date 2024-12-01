@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /app
+WORKDIR /backend
 
 # Install system dependencies
 RUN apt-get update \
@@ -31,15 +31,18 @@ RUN poetry config virtualenvs.create false
 # Install dependencies
 RUN poetry install --no-interaction --no-ansi
 
-# Copy project
+# Copy project (this includes the entrypoint script)
 COPY . .
 
-# Expose port
-EXPOSE 8000 
+# Make entrypoint script executable in its original location
+RUN chmod +x scripts/docker/entrypoint.sh
 
-# Copy entrypoint script
+# Copy to final location and make executable again
 COPY scripts/docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Set entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
+
+# Expose port
+EXPOSE 8000 
